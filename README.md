@@ -9,7 +9,7 @@ In case the steps below are too much trouble for you (and you trust me... ;) jus
 
 * Changelog:
 
- - changed version to voyage_16.0-2
+ - changed version to voyage_16.0-**2**
  - applied CVE-2016-5195 (Dirty COW patch) https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427A
 
 And that's it, *NOTHING* else was changed.
