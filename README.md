@@ -56,5 +56,5 @@ GRUB_CMDLINE_LINUX="video=off elevator=deadline console=tty0 console=ttyS0,11520
 GRUB_TERMINAL=serial
 GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --stop=1"
 </pre>
-In /etc/inittab add at the bottom:
+In /etc/inittab add at the bottom:<br>
 `0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100`
