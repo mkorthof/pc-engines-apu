@@ -5,7 +5,7 @@
 
 #### In case the steps below are too much trouble for you (and you trust me... ;) just execute the following oneliner to install the updated kernel:
 
-<u>linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb**</u>
+<u>linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb</u>
 
 <sub>(copy/paste as one line)</sub>
 <pre>
