@@ -48,3 +48,13 @@ https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-building
 https://www.debian.org/releases/jessie/i386/ch08s06.html.en<br>
 https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs<br>
 
+# Serial Console
+
+In /etc/default/grub change:
+<pre>
+GRUB_CMDLINE_LINUX="video=off elevator=deadline console=tty0 console=ttyS0,115200"
+GRUB_TERMINAL=serial
+GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --stop=1"
+</pre>
+In /etc/inittab add at the bottom:
+`0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100`
