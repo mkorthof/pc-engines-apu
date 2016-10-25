@@ -18,7 +18,7 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
  - applied Dirty COW patch (CVE-2016-5195), https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427
 
 And that's it, *NOTHING* else was changed.
-
+<br><br>
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (Dirty COW).<br>
 I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
 I do however use the Voyage kernel and modules since was the easiest and quickest way to get get WLAN working (ath9).<BR>
@@ -37,13 +37,13 @@ I do however use the Voyage kernel and modules since was the easiest and quickes
 
 #### compile:<br>
 `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
-
+<br><br>
 * Tests
 
 1. cowroot.c: not vulnerable (https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)<br>
    this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
-
+<br><br>
 * More info / links:
 
 http://wiki.voyage.hk/voyage_kernel.txt<br>
@@ -52,6 +52,8 @@ https://anonscm.debian.org/cgit/kernel/linux.git/log/?h=jessie-security<br>
 https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-building<br>
 https://www.debian.org/releases/jessie/i386/ch08s06.html.en<br>
 https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs<br>
+
+<br><br>
 
 # Serial Console
 
