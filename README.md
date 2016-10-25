@@ -3,7 +3,7 @@
 
 ### Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
-#### In case the steps below are too much trouble for you (and you trust me... ;) just execute the following oneliner to install the updated kernel **linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb**:
+#### In case the steps below are too much trouble for you (and you trust me... ;) just execute the following oneliner to install the updated kernel __**linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb**__:
 
 <pre>
 $ wget https://github.com/mkorthof/voyage-linux/raw/master/linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb && sha512sum linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb | \
@@ -13,10 +13,10 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-* Changelog:
+* Changelog 3.16.7-ckt9-voyage:
 
  - changed version to voyage_16.0-**2**
- - applied Dirty COW patch (CVE-2016-5195), https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427
+ - applied Dirty COW patch CVE-2016-5195 (https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427)
 
 And that's it, *NOTHING* else was changed.
 <br><br>
