@@ -3,7 +3,7 @@
 
 ### Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
-#### In case the steps below are too much trouble for you (and you trust me... ;) just execute the following oneliner to install the updated kernel __linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb__:
+#### In case the steps below are too much trouble for you (and you trust me... ;) just execute the following oneliner to install the updated kernel **linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb**:
 
 <pre>
 $ wget https://github.com/mkorthof/voyage-linux/raw/master/linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb && sha512sum linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb | \
