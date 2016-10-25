@@ -36,7 +36,7 @@ I do however use the Voyage kernel and modules since was the easiest and quickes
 * Tests
 
 1. cowroot.c: not vulnerable (https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)<br>
-   same result as 3.16.36-1+deb8u2
+   this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
 
 * More info / links:
