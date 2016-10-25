@@ -27,10 +27,10 @@ I do however use the Voyage kernel and modules since was the easiest and quickes
    (e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`),<br>
    or alternatively from debian kernel source package
 
-apply patch(es):<br>
+### apply patch(es):<br>
 `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
 
-compile:<br>
+### compile:<br>
 `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
 
 * Tests
