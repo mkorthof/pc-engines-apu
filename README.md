@@ -57,7 +57,6 @@ https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-building
 https://www.debian.org/releases/jessie/i386/ch08s06.html.en<br>
 https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs<br>
 <br><br>
-
 # Serial Console
 
 In /etc/default/grub change:
