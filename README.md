@@ -1,5 +1,5 @@
 
-# Voyage Linux (updated kernels)
+# Voyage Linux Kernels
 
 ### Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
@@ -15,7 +15,7 @@
 And that's it, *NOTHING* else was changed.
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (Dirty COW).<br>
-I do not run Voyage Linux myself on my APU.1D4 but use standard Debian instead.<br>
+ do not run Voyage Linux myself on my PC Engines APU.1D4 but use standard Debian instead.<br>
 I do however use the Voyage kernel and modules since was the easiest and quickest way to get get WLAN working (9).<BR>
 
 * The simplest and fastest way to update Voyage kernels seems to be to:
