@@ -13,7 +13,6 @@ $ wget https://github.com/mkorthof/voyage-linux/raw/master/linux-image-3.16.7-ck
 grep 48dc119f47814ad53245b9d76fac8f38d8c7e26142d72f533a1773e0b019a507131230519af9873b06090100a92443ec44a4114b0d6578333ec9daa9f19d9b52 && \
 sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage.bak && dpkg -i linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb"
 </pre>
-<br>
 
 * Changelog 3.16.7-ckt9-voyage:
 
