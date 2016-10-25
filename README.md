@@ -23,18 +23,19 @@ I do however use the Voyage kernel and modules since was the easiest and quickes
  - setup a VM with Debian (e.g. VirtualBox)
  - install the voyage kernel source (or download from http://www.voyage.hk/dists/0.x/linux/, e.g. /0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb)
  - and config from linux-image (/boot or same url)
- - get patches from https://anonscm.debian.org/cgit/kernel/linux.git/ (e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`),
+ - get patches from https://anonscm.debian.org/cgit/kernel/linux.git/<br>
+   (e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`),<br>
    or alternatively from debian kernel source package
 
-apply patch(es):
+apply patch(es):<br>
 `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
 
-compile:
+compile:<br>
 `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
 
 * Tests
 
-1. cowroot.c, not vulnerable (https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)
+1. cowroot.c: not vulnerable (https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)<br>
    same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
 
