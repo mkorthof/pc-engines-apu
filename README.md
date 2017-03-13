@@ -24,7 +24,7 @@ And that's it, *NOTHING* else was changed.
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (Dirty COW).<br>
 I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
-I do however use the Voyage kernel and modules since was the easiest and quickest way to get get WLAN working (ath9).<BR>
+I do however use the Voyage kernel and modules since that was the easiest and quickest way to get get WLAN working (ath9).<BR>
 
 * The simplest and fastest way to update Voyage kernels seems to be to:
 
