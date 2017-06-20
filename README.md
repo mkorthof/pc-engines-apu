@@ -20,14 +20,14 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 #### Changelog 3.16.7-ckt9-voyage:
 
 * changed version to voyage_16.0-**2**
-* applied Dirty COW patch CVE-2016-5195 ( https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427 )
+* applied Dirty COW patch CVE-2016-5195 ([https://anonscm.debian.org/cgit/kernel/linux.git](https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427))
 
 And that's it, *NOTHING* else was changed.
 <br>
 
 #### Tests:
 
-1. cowroot.c: not vulnerable (https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)<br>
+1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679))<br>
    this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
 <br><br>
@@ -37,11 +37,12 @@ And that's it, *NOTHING* else was changed.
 The simplest and fastest way to update Voyage kernels seems to be to:
 
 1. Setup a VM with Debian (e.g. VirtualBox)
-2. Install the voyage kernel source (or download from http://www.voyage.hk/dists/0.x/linux/, e.g. /0.10/linux/linux-source-3.     16.7-ckt9-voyage_16.0-1_all.deb)
-3. Copy config from linux-image (/boot or same url)
+2. Install the voyage kernel source
+   (or download from http://www.voyage.hk/dists/0.x/linux/ e.g. 0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb)
+3. Copy config from linux-image (/boot or get it from linux.voyage.hk)
 4. Get patch(es) from https://anonscm.debian.org/cgit/kernel/linux.git/<br>
-   (e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`),<br>
-   or alternatively from debian kernel source package
+   e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`
+   or alternatively use debian kernel source package
 5. Apply patches: `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
 6. Compile: `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
 <br><br>
