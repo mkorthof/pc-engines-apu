@@ -45,7 +45,7 @@ The simplest and fastest way to update Voyage kernels seems to be to:
    or alternatively use debian kernel source package
 5. Apply patches: `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
 6. Compile: `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
-<br><br>
+<br>
 
 * More info / links:
   * http://wiki.voyage.hk/voyage_kernel.txt
