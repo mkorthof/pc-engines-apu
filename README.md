@@ -2,6 +2,10 @@
 # Voyage Linux Kernels
 Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
+The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
+I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
+I do however use the Voyage kernel and modules since that was the easiest and quickest way to get get WLAN working (ath9).<BR>
+
 #### In case the steps below are too much trouble for you (and you trust me... ;) just execute the oneliner below to install the updated kernel package.
 
 Kernel 3.16.7-ckt9-voyage_16.0-2 (linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb):
@@ -19,6 +23,7 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 * applied Dirty COW patch CVE-2016-5195 ( https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427 )
 
 And that's it, *NOTHING* else was changed.
+<br>
 
 #### Tests:
 
@@ -26,10 +31,6 @@ And that's it, *NOTHING* else was changed.
    this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
 <br><br>
-
-The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
-I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
-I do however use the Voyage kernel and modules since that was the easiest and quickest way to get get WLAN working (ath9).<BR>
 
 #### Rolling it yourself:
 
