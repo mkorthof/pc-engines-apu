@@ -4,7 +4,7 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
 I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
-I do however use the Voyage kernel and modules since that was the easiest and quickest way to get get WLAN working (ath9).<BR>
+I do however use the Voyage kernel and modules since that was the easiest and quickest way to get WLAN working (ath9).<BR>
 
 #### In case the steps below are too much trouble for you (and you trust me... ;) just execute the oneliner below to install the updated kernel package.
 
