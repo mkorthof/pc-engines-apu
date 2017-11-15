@@ -60,7 +60,7 @@ The simplest and fastest way to update Voyage kernels seems to be to:
   * https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-building
   * https://www.debian.org/releases/jessie/i386/ch08s06.html.en
 
-#### Serial Console:
+## Serial Console:
 
 Might be a good idea set this up first, before messing with kernel.
 
