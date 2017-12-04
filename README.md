@@ -2,12 +2,12 @@
 # Voyage Linux Kernels
 Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
-## debian 9 stretch update
+## Debian 9 stretch update
 
 "Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds).
 I'm currently testing DKMS to get the driver installed now and in future kernels.
 
-## debian 8 jessie / voyage-linux-0.10.0
+## Debian 8 jessie / voyage-linux-0.10.0
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
 I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
