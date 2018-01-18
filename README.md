@@ -8,6 +8,10 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
 ### PC Engines APU LEDs
 
+Module:       leds_apu, leds-apu.ko
+Description:  PCEngines apu LED driver
+Author:       Christian Herzog
+
 Example: echo disk-activity > /sys/class/leds/apu\:2/trigger
 - list options: cat /sys/class/leds/apu\:1/trigger
 - commented out: led1 (poweron)
@@ -26,15 +30,14 @@ To install:
 <pre>
 $ wget https://github.com/mkorthof/voyage-linux/raw/master/leds-apu-dkms_0.1_amd64.deb && sha512sum leds-apu-dkms_0.1_amd64.deb | \
 grep aec8d1cd0b7967ac9146fe11811c6ca0a67692e94a61f395901504e88c311b2cec0cd8f3d52432a01c6da35207944d0df1dca35a0e8c1eb26bc65b223739cd14 && \
-sudo && /leds-apu-dkms_0.1_amd64.deb && sha512sum
+sudo dpkg -i leds-apu-dkms_0.1_amd64.deb
 </pre>
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-<<<<<<< HEAD
 #### leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb (bmdeb):
 
-Installs just the binary (leds-apu.ko) module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
+Installs just the binary module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
 You have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
 #### source (dsc):
@@ -105,7 +108,6 @@ The simplest and fastest way to update Voyage kernels seems to be to:
    or alternatively use debian kernel source package
 5. Apply patches: `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
 6. Compile: `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
->>>>>>> 13d165975aaa3b3c9f18b666358bb13e57449e06
 
 #### Rolling it yourself:
 
