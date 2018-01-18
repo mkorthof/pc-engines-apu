@@ -5,7 +5,6 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 ## Debian 9 stretch update
 
 "Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds).
-~~I'm currently testing DKMS to get the driver installed now and in future kernels.~~ I've managed to built the LED kernel module using [DKMS](https://github.com/dell/dkms). Unless there are huge ABI changes between kernel versions these should keep working for now.
 
 ### PC Engines APU LEDs
 
@@ -32,6 +31,7 @@ sudo && /leds-apu-dkms_0.1_amd64.deb && sha512sum
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
+<<<<<<< HEAD
 #### leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb (bmdeb):
 
 Installs just the binary (leds-apu.ko) module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
@@ -76,6 +76,36 @@ And that's it, *NOTHING* else was changed.
 1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)), this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
 <br><br>
+=======
+#### Changelog 3.16.7-ckt9-voyage:
+
+* changed version to voyage_16.0-**2**
+* applied Dirty COW patch CVE-2016-5195 ([https://anonscm.debian.org/cgit/kernel/linux.git](https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427))
+
+And that's it, *NOTHING* else was changed.
+<br>
+
+#### Tests:
+
+1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)), this is the same result as 3.16.36-1+deb8u2
+2. WLAN still works;)
+<br><br>
+
+#### Rolling it yourself:
+
+The simplest and fastest way to update Voyage kernels seems to be to:
+
+1. Setup a VM with Debian (e.g. VirtualBox)
+2. Install the voyage kernel source<br>
+   Or download from http://www.voyage.hk/dists/0.x/linux/<br>
+   ( e.g. [/dists/0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb](http://www.voyage.hk/dists/0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb) )
+3. Copy config from linux-image (/boot or get it from linux.voyage.hk)
+4. Get patch(es) from https://anonscm.debian.org/cgit/kernel/linux.git/<br>
+   e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`<br>
+   or alternatively use debian kernel source package
+5. Apply patches: `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
+6. Compile: `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
+>>>>>>> 13d165975aaa3b3c9f18b666358bb13e57449e06
 
 #### Rolling it yourself:
 
