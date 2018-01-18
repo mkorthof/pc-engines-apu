@@ -8,9 +8,9 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
 ### PC Engines APU LEDs
 
-Module:       leds_apu, leds-apu.ko
-Description:  PCEngines apu LED driver
-Author:       Christian Herzog
+Module:       leds_apu, leds-apu.ko 
+Description:  PCEngines apu LED driver 
+Author:       Christian Herzog 
 
 Example: echo disk-activity > /sys/class/leds/apu\:2/trigger
 - list options: cat /sys/class/leds/apu\:1/trigger
