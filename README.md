@@ -36,7 +36,7 @@ sudo dpkg -i leds-apu-dkms_0.1_amd64.deb
 Installs just the binary module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
 After installing it (`dpkg -i`) you have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
-#### leds-apu-dkms_0.1{.dsc,_source.changes.,tar.gz} (source):
+#### leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz} (source):
 
 Tarball leds-apu-dkms_0.1.tar.gz contains module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
 
