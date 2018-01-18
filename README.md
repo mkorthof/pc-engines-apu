@@ -4,17 +4,13 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
 ## Debian 9 stretch update
 
-"Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds).
+"Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds). ~~I'm currently testing DKMS to get the driver installed now and in future kernels.~~ I've managed to built the LED kernel module using [DKMS](https://github.com/dell/dkms). Unless there are huge ABI changes between kernel versions these should keep working for now.
 
 ### PC Engines APU LEDs
 
 Module:       leds_apu, leds-apu.ko  
 Description:  PCEngines apu LED driver  
 Author:       Christian Herzog  
-
-Example: echo disk-activity > /sys/class/leds/apu\:2/trigger
-- list options: cat /sys/class/leds/apu\:1/trigger
-- commented out: led1 (poweron)
 
 #### leds-apu-dkms_0.1_amd64.deb:
 
@@ -38,16 +34,22 @@ sudo dpkg -i leds-apu-dkms_0.1_amd64.deb
 #### leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb (bmdeb):
 
 Installs just the binary module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
-You have to manually load the module (`modprobe leds-apu`) and set trigger(s).
+After installing it (`dpkg -i`) you have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
-#### source (dsc):
+#### leds-apu-dkms_0.1{.dsc,_source.changes.,tar.gz} (source):
 
-leds-apu-dkms_0.1.dsc  
-leds-apu-dkms_0.1_source.changes  
-leds-apu-dkms_0.1.tar.gz  
+Tarball leds-apu-dkms_0.1.tar.gz contains module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
 
-Tarball containing module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
+### Triggers
 
+After the module is loaded /sys/class/leds/apu:[1-3] will be available (apu1 is the powerled).
+Examples:
+```
+echo 1 > /sys/class/leds/apu\:2/brightness
+echo disk-activity > /sys/class/leds/apu\:2/trigger`
+````
+List all options:
+`cat /sys/class/leds/apu\:1/trigger`
 
 ## Debian 8 jessie / voyage-linux-0.10.0
 
