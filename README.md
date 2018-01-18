@@ -51,6 +51,7 @@ echo disk-activity > /sys/class/leds/apu\:2/trigger`
 List all options:
 `cat /sys/class/leds/apu\:1/trigger`
 
+
 ## Debian 8 jessie / voyage-linux-0.10.0
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
