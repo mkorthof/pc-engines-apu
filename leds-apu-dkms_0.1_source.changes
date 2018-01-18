@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Wed, 17 Jan 2018 18:11:10 +0100
+Source: leds-apu-dkms
+Binary: leds-apu-dkms
+Architecture: source
+Version: 0.1
+Distribution: stable
+Urgency: low
+Maintainer: Dynamic Kernel Modules Support Team <pkg-dkms-maint@lists.alioth.debian.org>
+Changed-By: Dynamic Kernel Modules Support Team <pkg-dkms-maint@lists.alioth.debian.org>
+Description:
+ leds-apu-dkms - leds-apu driver in DKMS format.
+Changes:
+ leds-apu-dkms (0.1) stable; urgency=low
+ .
+   * Automatically packaged by DKMS.
+Checksums-Sha1:
+ af3dc44823aedf09e5a2aa0b20b81b63c925e379 575 leds-apu-dkms_0.1.dsc
+ 39069a0dec1eea5ab7a1fe28ac44407ba4b44d4f 10423 leds-apu-dkms_0.1.tar.gz
+ a401014eba1cd8b13905777474602a02cc661586 4628 leds-apu-dkms_0.1_source.buildinfo
+Checksums-Sha256:
+ c898c9fc467a810d5a042b56deca1d5da8498ab6c36ef377e86851cf670e912c 575 leds-apu-dkms_0.1.dsc
+ dfdd0d7e6e56fdbedf7348bfcb3abfe7f7e3e865c406b99f225a945fd74ff768 10423 leds-apu-dkms_0.1.tar.gz
+ 7a0d6b3ef3f15f4c1e43acfaba4c6fc122ca480723bae1387f37d8057a220d69 4628 leds-apu-dkms_0.1_source.buildinfo
+Files:
+ d367b833ac769c673bc44f798dd6f500 575 misc optional leds-apu-dkms_0.1.dsc
+ 4fda1f32589a9d270188782dee57a31e 10423 misc optional leds-apu-dkms_0.1.tar.gz
+ 4da6b345ed1a894051297fecd5d7a3e4 4628 misc optional leds-apu-dkms_0.1_source.buildinfo
