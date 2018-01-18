@@ -5,7 +5,46 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 ## Debian 9 stretch update
 
 "Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds).
-I'm currently testing DKMS to get the driver installed now and in future kernels.
+~~I'm currently testing DKMS to get the driver installed now and in future kernels.~~ I've managed to built the LED kernel module using [DKMS](https://github.com/dell/dkms). Unless there are huge ABI changes between kernel versions these should keep working for now.
+
+### PC Engines APU LEDs
+
+Example: echo disk-activity > /sys/class/leds/apu\:2/trigger
+- list options: cat /sys/class/leds/apu\:1/trigger
+- commented out: led1 (poweron)
+
+#### leds-apu-dkms_0.1_amd64.deb:
+
+Installs leds-apu module and adds it to /etc/modules so it gets loads at boot time. It also sets these triggers for disk and cpu activity in /etc/rc.local. 
+```
+echo disk-activity > /sys/class/leds/apu\:2/trigger
+echo cpu0 > /sys/class/leds/apu\:3/trigger
+```
+You can change them to whatever you like bu editting /etc/rc.local. 
+
+DKMS will try to recompile the module if the kernel version changes. If you don't know what to download use you probably want this package.
+To install:
+<pre>
+$ wget https://github.com/mkorthof/voyage-linux/raw/master/leds-apu-dkms_0.1_amd64.deb && sha512sum leds-apu-dkms_0.1_amd64.deb | \
+grep aec8d1cd0b7967ac9146fe11811c6ca0a67692e94a61f395901504e88c311b2cec0cd8f3d52432a01c6da35207944d0df1dca35a0e8c1eb26bc65b223739cd14 && \
+sudo && /leds-apu-dkms_0.1_amd64.deb && sha512sum
+</pre>
+<sub>(copy/paste as one line)</sub>
+<br><br>
+
+#### leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb (bmdeb):
+
+Installs just the binary (leds-apu.ko) module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
+You have to manually load the module (`modprobe leds-apu`) and set trigger(s).
+
+#### source (dsc):
+
+Tarball containing module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
+
+leds-apu-dkms_0.1.dsc
+leds-apu-dkms_0.1_source.changes
+leds-apu-dkms_0.1.tar.gz
+
 
 ## Debian 8 jessie / voyage-linux-0.10.0
 
@@ -72,3 +111,4 @@ GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --stop=1"
 </pre>
 In /etc/inittab add at the bottom:<br>
 `0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100`
+
