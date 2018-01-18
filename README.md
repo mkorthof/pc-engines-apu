@@ -8,9 +8,9 @@ Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
 ### PC Engines APU LEDs
 
-Module:       leds_apu, leds-apu.ko 
-Description:  PCEngines apu LED driver 
-Author:       Christian Herzog 
+Module:       leds_apu, leds-apu.ko  
+Description:  PCEngines apu LED driver  
+Author:       Christian Herzog  
 
 Example: echo disk-activity > /sys/class/leds/apu\:2/trigger
 - list options: cat /sys/class/leds/apu\:1/trigger
@@ -42,11 +42,11 @@ You have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
 #### source (dsc):
 
-Tarball containing module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
+leds-apu-dkms_0.1.dsc  
+leds-apu-dkms_0.1_source.changes  
+leds-apu-dkms_0.1.tar.gz  
 
-leds-apu-dkms_0.1.dsc
-leds-apu-dkms_0.1_source.changes
-leds-apu-dkms_0.1.tar.gz
+Tarball containing module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
 
 
 ## Debian 8 jessie / voyage-linux-0.10.0
