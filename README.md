@@ -1,6 +1,10 @@
 
-# Voyage Linux Kernels
-Updated kernels for Voyage Linux (http://linux.voyage.hk)
+# PC Engines APU
+
+Renamed repositoy from "voyage-linux" to **"pc-engines-apu"** as a more appropriate description.
+It still contains the same Voyage Linux Kernels and the LED driver for plain vanilla Debian. Will add more soon...
+
+# Debian
 
 ## Debian 9 stretch update
 
@@ -51,6 +55,8 @@ echo disk-activity > /sys/class/leds/apu\:2/trigger`
 List all options:
 `cat /sys/class/leds/apu\:1/trigger`
 
+# Voyage Linux Kernels
+Updated kernels for Voyage Linux (http://linux.voyage.hk)
 
 ## Debian 8 jessie / voyage-linux-0.10.0
 
@@ -134,9 +140,40 @@ The simplest and fastest way to update Voyage kernels seems to be to:
   * https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-building
   * https://www.debian.org/releases/jessie/i386/ch08s06.html.en
 
-## Serial Console:
+# Tiny Core Linux
+
+Ready made DD Image with latest TinyBoot version and changes for PCE applied (serial console). Write to USB using ``dd if=tinyboot-x-pce.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your usb drive, e.g. /dev/sdd.
+
+***TBD: will commit this soon***
+
+Oneliner to install:
+<pre>
+$ wget https://github.com/mkorthof/voyage-linux/raw/master/tinyboot-x-pce.img && sha512sum tinyboot-x-pce.img | \
+grep h4shh4shh4sh && \
+sudo dd if=tinyboot-x-pce.img of=YOUR-USB-DEV
+</pre>
+<sub>(copy/paste as one line)</sub>
+<br><br>
+
+Windows usb installer:
+- http://pcengines.ch/file/apu-bootable-usb-installer_v1.8.exe
+- older core version included
+- pce changes applied
+
+Vanilla Windows USB installer (newer tinycore versions):
+- get need "core2usb" from SF and iso from http://distro.ibiblio.org/tinycorelinux/
+- needs empty fat32 filesystem (no files!) or it will complain (```"Target drive is not empty"```)
+- if there's no fs etc and it cannot get free space you'll get ```***ERROR***```
+- src: https://github.com/ha5di/core2usb/blob/master/core2usb.py
+- changes needed to get serial console below (or download the ready made image above)
+
+# Serial Console:
 
 Might be a good idea set this up first, before messing with kernel.
+
+## Debian
+
+menutries in grub.cfg need: linux ... console=tty0 console=ttyS0,115200
 
 In /etc/default/grub change:
 <pre>
@@ -144,6 +181,31 @@ GRUB_CMDLINE_LINUX="video=off elevator=deadline console=tty0 console=ttyS0,11520
 GRUB_TERMINAL=serial
 GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --stop=1"
 </pre>
+run: ```update-grub```
+
 In /etc/inittab add at the bottom:<br>
 `0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100`
 
+## TinyCore
+
+### syslinux.cfg
+
+At beginning of file add:
+<pre>
+SERIAL 0 115200
+CONSOLE 0
+</pre>
+add to APPEND entries: ```console=ttyS0,115200n8```
+
+### core.gz
+
+Extract: ```zcat core.gz | sudo cpio -i -H newc -d```
+
+In etc/inittab add:
+```ttyS0::respawn:/sbin/getty -nl /sbin/autologin 115200 ttyS0```
+
+Compress: ```find | cpio -o -H newc | gzip -2 > core.gz```
+
+More info:
+https://pcengines.ch/howto.htm#OS_installation
+https://www.google.nl/search?q=change+initrd
