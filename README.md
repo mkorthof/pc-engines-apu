@@ -148,7 +148,7 @@ The simplest and fastest way to update Voyage kernels seems to be to:
 
 # Tiny Core Linux
 
-Ready made DD Image with latest TinyBoot version and changes for PCE applied (serial console). Write to USB using ``dd if=tinyboot-x-pce.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your usb drive, e.g. /dev/sdd.
+Ready made raw DD Image with latest TinyBoot version and changes for PCE applied (serial console). Write to USB using ``dd if=tinyboot-x-pce.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your usb drive, e.g. /dev/sdd.
 
 ***TBD: will commit this soon***
 
