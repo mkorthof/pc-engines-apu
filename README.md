@@ -6,6 +6,10 @@ It still contains the same Voyage Linux Kernels and the LED driver for plain van
 
 # Debian
 
+If you're using Debian on mSATA you might want to have a look at this repository
+* [pcengines-apu-debian-cd/releases](https://github.com/ssinyagin/pcengines-apu-debian-cd/releases)
+* [pcengines-apu-debian-cd](https://github.com/ssinyagin/pcengines-apu-debian-cd)
+
 ## Debian 9 stretch update
 
 "Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds). ~~I'm currently testing DKMS to get the driver installed now and in future kernels.~~ I've managed to built the LED kernel module using [DKMS](https://github.com/dell/dkms). Unless there are huge ABI changes between kernel versions these should keep working for now.
