@@ -1,6 +1,8 @@
 
 # PC Engines APU
 
+### Repositoy for the [PC Engines APU](https://www.pcengines.ch/apu.htm) system board (SBC)
+
 Renamed repositoy from "voyage-linux" to **"pc-engines-apu"** as a more appropriate description.
 It still contains the same Voyage Linux Kernels and the LED driver for plain vanilla Debian. Will add more soon...
 
