@@ -30,7 +30,7 @@ Module:       leds_apu, leds-apu.ko
 Description:  PCEngines apu LED driver  
 Author:       Christian Herzog  
 
-#### [leds-apu-dkms_0.1_amd64.deb](/leds-apu-dkms_0.1_amd64.deb):
+#### [leds-apu-dkms_0.1_amd64.deb](leds-apu-dkms_0.1_amd64.deb):
 
 Installs leds-apu module and adds it to /etc/modules so it gets loads at boot time. It also sets these triggers for disk and cpu activity in /etc/rc.local. 
 ```
@@ -49,12 +49,12 @@ sudo dpkg -i leds-apu-dkms_0.1_amd64.deb
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-#### [leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb](/leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb) (bmdeb):
+#### [leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb](leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb) (bmdeb):
 
 Installs just the binary module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
 After installing it (`dpkg -i`) you have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
-#### [leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz}](/leds-apu-dkms_0.1.tar.gz) (source):
+#### [leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz}](leds-apu-dkms_0.1.tar.gz) (source):
 
 Tarball leds-apu-dkms_0.1.tar.gz contains module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
 
@@ -74,9 +74,9 @@ Updated kernel for Voyage Linux (http://linux.voyage.hk)
 
 ## voyage-linux-0.10.0 (debian 8 jessie)
 
-* [linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb](/linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
-* [linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb](/linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
-* [linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb](/linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb)
+* [linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb](linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
+* [linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb](linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
+* [linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb](linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb)
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
 I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
@@ -105,13 +105,14 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 
 # Tiny Core Linux
 
-[TinyCore-9.0-sc.img](/TinyCore-9.0-sc.img)
+[TinyCore-9.0-sc.img](TinyCore-9.0-sc.img)
 
 Ready made raw dd image with latest TinyCore version and changes for PCE APU applied (serial console). Write to USB using ``dd if=TinyCore-9.0-sc.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your USB drive, e.g. **/dev/sdd**.
 
 Oneliner to install:
 <pre>
-$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyCore-9.0-sc.img && sha512sum TinyCore-9.0-sc.img | \ grep 0e37edc6d2c5df52db893ce7c787e9fde926769f340472fd7f399f51c311fb530a71ec4f758b03f1112ae561a14eae3a662c9b2076ce34d09acd1afb225e9443 && \
+$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyCore-9.0-sc.img && sha512sum TinyCore-9.0-sc.img | \
+grep 0e37edc6d2c5df52db893ce7c787e9fde926769f340472fd7f399f51c311fb530a71ec4f758b03f1112ae561a14eae3a662c9b2076ce34d09acd1afb225e9443 && \
 echo OK, now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
 </pre>
 <sub>(copy/paste as one line)</sub>
