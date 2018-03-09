@@ -95,7 +95,7 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-#### Changelog 3.16.7-ckt9-voyage
+#### Changelog 3.16.7-ckt9-voyage:
 
 [CHANGELOG-3.16.7-ckt9-voyage.md](CHANGELOG-3.16.7-ckt9-voyage.md)
 
@@ -103,9 +103,8 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 
 1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)), this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
-<br><br>
 
-#### Rolling it yourself
+#### Rolling it yourself:
 
 [DIY-voyage-linux-kernel.md](DIY-voyage-linux-kernel.md)
 
