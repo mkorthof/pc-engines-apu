@@ -148,15 +148,14 @@ The simplest and fastest way to update Voyage kernels seems to be to:
 
 # Tiny Core Linux
 
-Ready made raw DD Image with latest TinyBoot version and changes for PCE applied (serial console). Write to USB using ``dd if=tinyboot-x-pce.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your usb drive, e.g. /dev/sdd.
+Ready made raw DD Image with latest TinyBoot version and changes for PCE applied (serial console). Write to USB using ``dd if=tinyboot-x-pce.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your usb drive, e.g. **/dev/sdd**.
 
-***TBD: will commit this soon***
+***TBD: will commit TinyBoot-9.0-sc.img soon***
 
 Oneliner to install:
 <pre>
-$ wget https://github.com/mkorthof/voyage-linux/raw/master/tinyboot-x-pce.img && sha512sum tinyboot-x-pce.img | \
-grep h4shh4shh4sh && \
-sudo dd if=tinyboot-x-pce.img of=YOUR-USB-DEV
+$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyBoot-9.0-sc.im && sha512sum TinyBoot-9.0-sc.im | \ grep h4shh4shh4sh && \
+echo now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
 </pre>
 <sub>(copy/paste as one line)</sub>
 <br><br>
