@@ -1,7 +1,7 @@
 
 # PC Engines APU
 
-### Repositoy for the [PC Engines APU](https://www.pcengines.ch/apu.htm) embedded system board (SBC)
+### Repository for the [PC Engines APU](https://www.pcengines.ch/apu.htm) embedded system board (SBC)
 
 ## Index
 
