@@ -3,8 +3,16 @@
 
 ### Repositoy for the [PC Engines APU](https://www.pcengines.ch/apu.htm) embedded system board (SBC)
 
+## Index
+
+* [Debian 9 Stretch](#debian-9-stretch-update)
+* [PC Engines APU LEDs](#pc-engines-apu-leds)
+* [Voyage Linux](#voyage-linux-kernel)
+* [Tiny Core Linux](#tiny-core-linux)
+* [Enable Serial Console](#enable-serial-console)
+
 Renamed repositoy from "voyage-linux" to **"pc-engines-apu"** as a more appropriate description.
-It still contains the same Voyage Linux Kernels and the LED driver for plain vanilla Debian. Will add more soon...
+It still contains the same Voyage Linux Kernel and the LED driver for plain vanilla Debian. Will add more soon...
 
 # Debian
 
@@ -22,7 +30,7 @@ Module:       leds_apu, leds-apu.ko
 Description:  PCEngines apu LED driver  
 Author:       Christian Herzog  
 
-#### leds-apu-dkms_0.1_amd64.deb:
+#### [leds-apu-dkms_0.1_amd64.deb](leds-apu-dkms_0.1_amd64.deb):
 
 Installs leds-apu module and adds it to /etc/modules so it gets loads at boot time. It also sets these triggers for disk and cpu activity in /etc/rc.local. 
 ```
@@ -41,12 +49,12 @@ sudo dpkg -i leds-apu-dkms_0.1_amd64.deb
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-#### leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb (bmdeb):
+#### [leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb](leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb) (bmdeb):
 
 Installs just the binary module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
 After installing it (`dpkg -i`) you have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
-#### leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz} (source):
+#### [leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz}](leds-apu-dkms_0.1.tar.gz) (source):
 
 Tarball leds-apu-dkms_0.1.tar.gz contains module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
 
@@ -61,10 +69,14 @@ echo disk-activity > /sys/class/leds/apu\:2/trigger`
 List all options:
 `cat /sys/class/leds/apu\:1/trigger`
 
-# Voyage Linux Kernels
-Updated kernels for Voyage Linux (http://linux.voyage.hk)
+# Voyage Linux
+Updated kernel for Voyage Linux (http://linux.voyage.hk)
 
-## Debian 8 jessie / voyage-linux-0.10.0
+## voyage-linux-0.10.0 (debian 8 jessie)
+
+* [linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb](linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
+* [linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb](linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
+* [linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb](linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb)
 
 The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs).<br>
 I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.<br>
@@ -81,80 +93,27 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-#### Changelog 3.16.7-ckt9-voyage:
+#### [Changelog 3.16.7-ckt9-voyage](CHANGELOG-3.16.7-ckt9-voyage.md)
 
-* changed version to voyage_16.0-**2**
-* applied Dirty COW patch CVE-2016-5195 ([https://anonscm.debian.org/cgit/kernel/linux.git](https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427))
-
-And that's it, *NOTHING* else was changed.
-<br>
-
-#### Tests:
-
-1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)), this is the same result as 3.16.36-1+deb8u2
-2. WLAN still works;)
-<br><br>
-=======
-#### Changelog 3.16.7-ckt9-voyage:
-
-* changed version to voyage_16.0-**2**
-* applied Dirty COW patch CVE-2016-5195 ([https://anonscm.debian.org/cgit/kernel/linux.git](https://anonscm.debian.org/cgit/kernel/linux.git/commit/?h=jessie-security&id=46f7cac7d0e62a88925ed4bb442c9f33e8aae427))
-
-And that's it, *NOTHING* else was changed.
-<br>
-
-#### Tests:
+#### Tests
 
 1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)), this is the same result as 3.16.36-1+deb8u2
 2. WLAN still works;)
 <br><br>
 
-#### Rolling it yourself:
-
-The simplest and fastest way to update Voyage kernels seems to be to:
-
-1. Setup a VM with Debian (e.g. VirtualBox)
-2. Install the voyage kernel source<br>
-   Or download from http://www.voyage.hk/dists/0.x/linux/<br>
-   ( e.g. [/dists/0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb](http://www.voyage.hk/dists/0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb) )
-3. Copy config from linux-image (/boot or get it from linux.voyage.hk)
-4. Get patch(es) from https://anonscm.debian.org/cgit/kernel/linux.git/<br>
-   e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`<br>
-   or alternatively use debian kernel source package
-5. Apply patches: `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
-6. Compile: `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
-
-#### Rolling it yourself:
-
-The simplest and fastest way to update Voyage kernels seems to be to:
-
-1. Setup a VM with Debian (e.g. VirtualBox)
-2. Install the voyage kernel source<br>
-   Or download from http://www.voyage.hk/dists/0.x/linux/<br>
-   ( e.g. [/dists/0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb](http://www.voyage.hk/dists/0.10/linux/linux-source-3.16.7-ckt9-voyage_16.0-1_all.deb) )
-3. Copy config from linux-image (/boot or get it from linux.voyage.hk)
-4. Get patch(es) from https://anonscm.debian.org/cgit/kernel/linux.git/<br>
-   e.g. `git clone -b jessie-security --single-branch https://anonscm.debian.org/git/kernel/linux.git`<br>
-   or alternatively use debian kernel source package
-5. Apply patches: `patch -p1 < /path/to/linux/debian/patches/bugfix/all/mm-remove-gup_flags-FOLL_WRITE-games-from-__get_user.patch`
-6. Compile: `make-kpkg clean && time fakeroot make-kpkg --initrd --revision="16.0-2" --append-to-version="-voyage" kernel_image`
-
-* More info / links:
-  * http://wiki.voyage.hk/voyage_kernel.txt
-  * http://linux.voyage.hk/develop
-  * https://anonscm.debian.org/cgit/kernel/linux.git/log/?h=jessie-security
-  * https://kernel-handbook.alioth.debian.org/ch-common-tasks.html#s-common-building
-  * https://www.debian.org/releases/jessie/i386/ch08s06.html.en
+#### [Rolling it yourself](DIY-voyage-linux-kernel.md)
 
 # Tiny Core Linux
 
-[TinyCore-9.0-sc.img]()
-Ready made raw dd image with latest TinyCore version and changes for PCE applied (serial console). Write to USB using ``dd if=TinyCore-9.0-sc.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your USB drive, e.g. **/dev/sdd**.
+[TinyCore-9.0-sc.img](TinyCore-9.0-sc.img)
+
+Ready made raw dd image with latest TinyCore version and changes for PCE APU applied (serial console). Write to USB using ``dd if=TinyCore-9.0-sc.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your USB drive, e.g. **/dev/sdd**.
 
 Oneliner to install:
 <pre>
-$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyCore-9.0-sc.img && sha512sum TinyCore-9.0-sc.img | \ grep 0e37edc6d2c5df52db893ce7c787e9fde926769f340472fd7f399f51c311fb530a71ec4f758b03f1112ae561a14eae3a662c9b2076ce34d09acd1afb225e9443 && \
-echo now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
+$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyCore-9.0-sc.img && sha512sum TinyCore-9.0-sc.img | \
+grep 0e37edc6d2c5df52db893ce7c787e9fde926769f340472fd7f399f51c311fb530a71ec4f758b03f1112ae561a14eae3a662c9b2076ce34d09acd1afb225e9443 && \
+echo OK, now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
 </pre>
 <sub>(copy/paste as one line)</sub>
 <br><br>
@@ -171,11 +130,11 @@ Vanilla Windows USB installer (newer tinycore versions):
 - src: https://github.com/ha5di/core2usb/blob/master/core2usb.py
 - changes needed to get serial console below (or download the ready made image above)
 
-# Serial Console:
+# Enable Serial Console
 
 Might be a good idea set this up first, before messing with kernel.
 
-## Debian
+## Get serial console working in Debian
 
 menutries in grub.cfg need: linux ... console=tty0 console=ttyS0,115200
 
@@ -190,7 +149,7 @@ run: ```update-grub```
 In /etc/inittab add at the bottom:<br>
 `0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100`
 
-## TinyCore
+## Get serial console working in TinyCore
 
 ### syslinux.cfg
 
