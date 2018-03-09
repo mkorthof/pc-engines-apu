@@ -14,6 +14,7 @@
 Renamed repositoy from "voyage-linux" to **"pc-engines-apu"** as a more appropriate description.
 It still contains the same Voyage Linux Kernel and the LED driver for plain vanilla Debian. Will add more soon...
 
+
 # Debian
 
 If you're using Debian on mSATA you might want to have a look at this repository
@@ -69,6 +70,7 @@ echo disk-activity > /sys/class/leds/apu\:2/trigger`
 List all options:
 `cat /sys/class/leds/apu\:1/trigger`
 
+
 # Voyage Linux
 Updated kernel for Voyage Linux (http://linux.voyage.hk)
 
@@ -93,7 +95,9 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-#### [Changelog 3.16.7-ckt9-voyage](CHANGELOG-3.16.7-ckt9-voyage.md)
+#### Changelog 3.16.7-ckt9-voyage
+
+[CHANGELOG-3.16.7-ckt9-voyage.md](CHANGELOG-3.16.7-ckt9-voyage.md)
 
 #### Tests
 
@@ -101,7 +105,10 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 2. WLAN still works;)
 <br><br>
 
-#### [Rolling it yourself](DIY-voyage-linux-kernel.md)
+#### Rolling it yourself
+
+[DIY-voyage-linux-kernel.md](DIY-voyage-linux-kernel.md)
+
 
 # Tiny Core Linux
 
@@ -118,7 +125,7 @@ echo OK, now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
 <sub>(copy/paste as one line)</sub>
 <br><br>
 
-Windows usb installer:
+Windows USB installer:
 - http://pcengines.ch/file/apu-bootable-usb-installer_v1.8.exe
 - older core version included
 - pce changes applied
@@ -129,6 +136,7 @@ Vanilla Windows USB installer (newer tinycore versions):
 - if there's no fs etc and it cannot get free space you'll get ```***ERROR***```
 - src: https://github.com/ha5di/core2usb/blob/master/core2usb.py
 - changes needed to get serial console below (or download the ready made image above)
+
 
 # Enable Serial Console
 
