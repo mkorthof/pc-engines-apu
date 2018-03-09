@@ -11,7 +11,7 @@
 * [Tiny Core Linux](#tiny-core-linux)
 * [Enable Serial Console](#enable-serial-console)
 
-Renamed repositoy from "voyage-linux" to **"pc-engines-apu"** as a more appropriate description.
+Renamed repository from "voyage-linux" to **"pc-engines-apu"** as a more appropriate description.
 It still contains the same Voyage Linux Kernel and the LED driver for plain vanilla Debian. Will add more soon...
 
 
