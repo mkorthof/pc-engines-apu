@@ -38,7 +38,7 @@ Installs leds-apu module and adds it to /etc/modules so it gets loads at boot ti
 echo disk-activity > /sys/class/leds/apu\:2/trigger
 echo cpu0 > /sys/class/leds/apu\:3/trigger
 ```
-You can change them to whatever you like bu editting /etc/rc.local. 
+You can change them to whatever you like by editing /etc/rc.local. 
 
 DKMS will try to recompile the module if the kernel version changes. If you don't know what to download use you probably want this package.
 To install:
