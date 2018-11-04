@@ -154,7 +154,7 @@ GRUB_SERIAL_COMMAND="serial --unit=0 --speed=115200 --stop=1"
 run: ```update-grub```
 
 In /etc/inittab add at the bottom:<br>
-`0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100`
+```0:2345:respawn:/sbin/agetty -8 ttyS0 115200 vt100```
 
 ## Get serial console working in TinyCore
 
