@@ -143,7 +143,7 @@ Might be a good idea set this up first, before messing with kernel.
 
 ## Get serial console working in Debian
 
-menutries in grub.cfg need: linux ... console=tty0 console=ttyS0,115200
+menuentries in grub.cfg need: ‘linux ... console=tty0 console=ttyS0,115200’
 
 In /etc/default/grub change:
 <pre>
