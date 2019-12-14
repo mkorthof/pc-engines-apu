@@ -82,13 +82,22 @@ List all options:
 
 ## Mirror
 
-It looks like the website (<http://linux.voyage.hk>) is gone so here\'s a small mirror of what I hadd downloaded locally:
+It looks like the website (<http://linux.voyage.hk>) is gone so here\'s a small mirror of what I had downloaded locally:
 
 * [voyage-0.10.0_amd64.iso](voyage-0.10.0_amd64.iso)
 * [voyage-0.11.0.iso](voyage-0.11.0.iso)
 * [voyage-sdk-0.11.0.iso](voyage-sdk-0.11.0.iso)
 * [voyage-MD5SUM](voyage-MD5SUM)
 * [voyage-sdk-MD5SUM](voyage-sdk-MD5SUM)
+
+Webpage from archive.org:
+
+* [http://linux.voyage.hk](https://web.archive.org/web/20190817074358/http://linux.voyage.hk/)
+* [linux.voyage.hk/mirror](https://web.archive.org/web/20190425204901/linux.voyage.hk/mirror)
+
+This seems to be the only working mirror left:
+
+* <http://voyage.kos.li>
 
 ## Updated kernel: voyage-linux-0.10.0
  
