@@ -16,16 +16,26 @@ It still contains the same Voyage Linux Kernel and the LED driver for plain vani
 
 # Debian
 
-If you're using Debian on mSATA you might want to have a look at this repository
+Info about WLAN and LED driver kernel modules on vanilla Debian.
+
+If you're using Debian on mSATA you may to look at this repository:
 
 * [pcengines-apu-debian-cd/releases](https://github.com/ssinyagin/pcengines-apu-debian-cd/releases)
 * [pcengines-apu-debian-cd](https://github.com/ssinyagin/pcengines-apu-debian-cd)
+
+## Debian 10 buster
+
+_The WLAN and LED kernel modules still work_
 
 ## Debian 9 stretch update
 
 "Plain" Debian 9 (dist upgrade) seems to run just fine on the PC Engines APU. WLAN works (WLE200NX/Qualcomm Atheros AR5008 using included ath9k driver). The Vanilla kernel 4.9.0 is ofcourse missing stuff like LED driver module (/sys/class/leds). I've managed to built the LED kernel module using [DKMS](https://github.com/dell/dkms). Unless there are huge ABI changes between kernel versions these should keep working for now.
 
-### PC Engines APU LEDs
+## Debian 8 jessie
+
+The easiest is "borrowing" matching kernel modules from Voyage Linux.
+
+## PC Engines APU LEDs
 
 ``` text
 Module:       leds_apu, leds-apu.ko  
@@ -33,7 +43,7 @@ Description:  PCEngines apu LED driver
 Author:       Christian Herzog  
 ```
 
-#### [leds-apu-dkms_0.1_amd64.deb](leds-apu-dkms_0.1_amd64.deb)
+### [leds-apu-dkms_0.1_amd64.deb](leds-apu-dkms_0.1_amd64.deb)
 
 Installs leds-apu module and adds it to /etc/modules so it gets loads at boot time. It also sets these triggers for disk and cpu activity in /etc/rc.local.
 
@@ -42,11 +52,11 @@ echo disk-activity > /sys/class/leds/apu\:2/trigger
 echo cpu0 > /sys/class/leds/apu\:3/trigger
 ```
 
-You can change them to whatever you like by editing /etc/rc.local. 
+You can change them to whatever you like by editing /etc/rc.local 
 
 DKMS will try to recompile the module if the kernel version changes. If you don't know what to download use you probably want this package.
 
-To install:
+**Quick install**:
 
 ``` bash
 $ wget https://github.com/mkorthof/voyage-linux/raw/master/leds-apu-dkms_0.1_amd64.deb && sha512sum leds-apu-dkms_0.1_amd64.deb | \
@@ -56,16 +66,16 @@ sudo dpkg -i leds-apu-dkms_0.1_amd64.deb
 
 _(copy/paste as one line)_
 
-#### [leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb](leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb) (bmdeb):
+### [leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb](leds-apu-modules-4.9.0-5-amd64_0.1_amd64.deb) (bmdeb)
 
 Installs just the binary module into /lib/modules on 4.9.0-5 kernels, nothing else. This package has no dependencies.
-After installing it (`dpkg -i`) you have to manually load the module (`modprobe leds-apu`) and set trigger(s).
+After installing it (using `dpkg -i`) you have to manually load the module (`modprobe leds-apu`) and set trigger(s).
 
-#### [leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz}](leds-apu-dkms_0.1.tar.gz) (source):
+### [leds-apu-dkms_0.1{.dsc,_source.changes,.tar.gz}](leds-apu-dkms_0.1.tar.gz) (source)
 
 Tarball leds-apu-dkms_0.1.tar.gz contains module src, dkms.conf and the post install/remove scripts that modify /etc/modules and /etc/rc.local.
 
-### Triggers
+## Triggers
 
 After the module is loaded /sys/class/leds/apu:[1-3] will be available (apu1 is the powerled).
 Examples:
@@ -80,45 +90,46 @@ List all options:
 
 # Voyage Linux
 
+Voyage Linux is/was a Debian derived distribution that is best run on a x86 embedded platforms such as PC Engines ALIX/WRAP, Soekris 45xx/48xx/65xx and Atom-based boards. Link: ~~<http://linux.voyage.hk>~~
+
 ## Mirror
 
-It looks like the website (<http://linux.voyage.hk>) is gone 
+It looks like the main website is gone, which is confirmed by <https://wiki.debian.org/Derivatives/Census/VoyageLinux>
 
-Webpage snapshot from archive.org:
+Webpage snapshots from archive.org:
 
-* [http://linux.voyage.hk](https://web.archive.org/web/20190817074358/http://linux.voyage.hk/)
-* [linux.voyage.hk/mirror](https://web.archive.org/web/20190425204901/linux.voyage.hk/mirror)
+[http://linux.voyage.hk](https://web.archive.org/web/20190817074358/http://linux.voyage.hk/) | [linux.voyage.hk/mirror](https://web.archive.org/web/20190425204901/linux.voyage.hk/mirror)
 
-This seems to be the only working official mirror left:
+There was only working mirror left, added another:
 
-* <http://voyage.kos.li>
+* <http://voyage.kos.li> (official mirror)
+* <https://archive.org/download/voyage-linux> | [details](https://archive.org/details/voyage-linux) (unofficial mirror)
 
-Here\'s a small mirror of what I had downloaded locally:
+Also here\'s the files I had downloaded locally, on Git LFS:
 
-* [voyage-0.10.0_amd64.iso](voyage-0.10.0_amd64.iso)
-* [voyage-0.11.0.iso](voyage-0.11.0.iso)
-* [voyage-sdk-0.11.0.iso](voyage-sdk-0.11.0.iso)
-* [voyage-MD5SUM](voyage-MD5SUM)
-* [voyage-sdk-MD5SUM](voyage-sdk-MD5SUM)
+[voyage-0.10.0_amd64.iso](voyage-0.10.0_amd64.iso) | [voyage-0.11.0.iso](voyage-0.11.0.iso) | [voyage-sdk-0.11.0.iso](voyage-sdk-0.11.0.iso) | [voyage-MD5SUM](voyage-MD5SUM) | [voyage-sdk-MD5SUM](voyage-sdk-MD5SUM)
 
-## Updated kernel: voyage-linux-0.10.0
+## Updated kernel for v0.10.0
  
-(debian 8 jessie)
+_(voyage-0.10.0 is based on debian 8 jessie)_
+
+The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: <https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs>).
+
+I do not run full Voyage Linux myself but use standard Debian instead (on a PC Engines APU.1D4). Howver, I did use the Voyage kernel and modules since that was the easiest and quickest way to get the WLAN ath9 driver working.
+
+### Downloads
+
+Get updated deb kernel packages:
 
 * [linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb](linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
 * [linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb](linux-headers-3.16.7-ckt9-voyage_16.0-2_amd64.deb)
 * [linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb](linux-source-3.16.7-ckt9-voyage_16.0-2_all.deb)
 
-The main reason to do this was to get a patched kernel for CVE-2016-5195 (aka Dirty COW: <https://
-github.com/dirtycow/dirtycow.github.io/wiki/PoCs>).
+### Installation
 
-I do not run Voyage Linux myself but use standard Debian instead - on a PC Engines APU.1D4.
+In case the DIY steps below are too much trouble for you (and you trust me... ;) 
 
-I do however use the Voyage kernel and modules since that was the easiest and quickest way to get WLAN working (ath9).<BR>
-
-**In case the steps below are too much trouble for you (and you trust me... ;) just execute the oneliner below to install the updated kernel package.**
-
-Kernel 3.16.7-ckt9-voyage_16.0-2 (linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb):
+**...just execute the oneliner below** to install the updated kernel:
 
 ``` bash
 $ wget https://github.com/mkorthof/voyage-linux/raw/master/linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb && sha512sum linux-image-3.16.7-ckt9-voyage_16.0-2_amd64.deb | \
@@ -128,14 +139,13 @@ sudo bash -c "mv /lib/modules/3.16.7-ckt9-voyage /lib/modules/3.16.7-ckt9-voyage
 
 _(copy/paste as one line)_
 
-### Changelog 3.16.7-ckt9-voyage
+#### Changelog
 
 [CHANGELOG-3.16.7-ckt9-voyage.md](CHANGELOG-3.16.7-ckt9-voyage.md)
 
-### Tests
+#### Tests
 
-1. cowroot.c: not vulnerable ([https://gist.github.com/rverton](https://gist.github.com/rverton/e9d4ff65d703a9084e85fa9df083c679)), this is the same result as 3.16.36-1+deb8u2
-2. WLAN still works;)
+[cowroot.c](https://gist.github.com/rverton) says "not vulnerable" which is the same result as 3.16.36-1+deb8u2 **and** WLAN still works;)
 
 ### Rolling it yourself
 
