@@ -18,7 +18,7 @@ It still contains the same Voyage Linux Kernel and the LED driver for plain vani
 
 Info about WLAN and LED driver kernel modules on vanilla Debian.
 
-If you're using Debian on mSATA you may to look at this repository:
+If you're using Debian on mSATA you may want to look at this repository:
 
 * [pcengines-apu-debian-cd/releases](https://github.com/ssinyagin/pcengines-apu-debian-cd/releases)
 * [pcengines-apu-debian-cd](https://github.com/ssinyagin/pcengines-apu-debian-cd)
