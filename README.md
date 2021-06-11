@@ -5,7 +5,9 @@
 
 ## Index
 
+* [Debian 10 Buster](#debian-10-buster)
 * [Debian 9 Stretch](#debian-9-stretch-update)
+* [Debian 8 Jessie](#debian-8-jessie)
 * [PC Engines APU LEDs](#pc-engines-apu-leds)
 * [Voyage Linux](#voyage-linux)
 * [Tiny Core Linux](#tiny-core-linux)
@@ -54,7 +56,7 @@ echo cpu0 > /sys/class/leds/apu\:3/trigger
 
 You can change them to whatever you like by editing /etc/rc.local 
 
-DKMS will try to recompile the module if the kernel version changes. If you don't know what to download use you probably want this package.
+DKMS will try to recompile the module if the kernel version changes. If you don't know what to download you probably want this package.
 
 **Quick install**:
 
