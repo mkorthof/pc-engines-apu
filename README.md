@@ -30,7 +30,7 @@ cd)
 
 ## Debian 11 bullseye
 
-All systems still go :)
+_All systems still go :)_
 
 ## Debian 10 buster
 
