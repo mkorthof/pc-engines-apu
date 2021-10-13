@@ -5,6 +5,7 @@
 
 ## Index
 
+* [Debian 11 Bullseye](#debian-11-bullseye)
 * [Debian 10 Buster](#debian-10-buster)
 * [Debian 9 Stretch](#debian-9-stretch-update)
 * [Debian 8 Jessie](#debian-8-jessie)
@@ -24,6 +25,12 @@ If you're using Debian on mSATA you may want to look at this repository:
 
 * [pcengines-apu-debian-cd/releases](https://github.com/ssinyagin/pcengines-apu-debian-cd/releases)
 * [pcengines-apu-debian-cd](https://github.com/ssinyagin/pcengines-apu-debian-cd)
+
+cd)
+
+## Debian 11 bullseye
+
+All systems still go :)
 
 ## Debian 10 buster
 
