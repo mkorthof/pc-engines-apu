@@ -26,8 +26,6 @@ If you're using Debian on mSATA you may want to look at this repository:
 * [pcengines-apu-debian-cd/releases](https://github.com/ssinyagin/pcengines-apu-debian-cd/releases)
 * [pcengines-apu-debian-cd](https://github.com/ssinyagin/pcengines-apu-debian-cd)
 
-cd)
-
 ## Debian 11 bullseye
 
 _All systems still go :)_
