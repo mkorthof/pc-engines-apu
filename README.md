@@ -97,11 +97,11 @@ List all options:
 
 # Voyage Linux
 
-Voyage Linux is/was a Debian derived distribution that is best run on a x86 embedded platforms such as PC Engines ALIX/WRAP, Soekris 45xx/48xx/65xx and Atom-based boards. Link: ~~<http://linux.voyage.hk>~~
+Voyage Linux is/was a Debian derived distribution that is best run on a x86 embedded platforms such as PC Engines ALIX/WRAP, Soekris 45xx/48xx/65xx and Atom-based boards. Link:  <http://linux.voyage.hk>
 
 ## Mirror
 
-It looks like the main website is gone, which is confirmed by <https://wiki.debian.org/Derivatives/Census/VoyageLinux>
+~~It looks like the main website is gone, which is confirmed by <https://wiki.debian.org/Derivatives/Census/VoyageLinux>~~
 
 Webpage snapshots from archive.org:
 
