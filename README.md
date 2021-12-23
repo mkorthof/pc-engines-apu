@@ -5,7 +5,10 @@
 
 ## Index
 
+* [Debian 11 Bullseye](#debian-11-bullseye)
+* [Debian 10 Buster](#debian-10-buster)
 * [Debian 9 Stretch](#debian-9-stretch-update)
+* [Debian 8 Jessie](#debian-8-jessie)
 * [PC Engines APU LEDs](#pc-engines-apu-leds)
 * [Voyage Linux](#voyage-linux)
 * [Tiny Core Linux](#tiny-core-linux)
@@ -18,10 +21,14 @@ It still contains the same Voyage Linux Kernel and the LED driver for plain vani
 
 Info about WLAN and LED driver kernel modules on vanilla Debian.
 
-If you're using Debian on mSATA you may to look at this repository:
+If you're using Debian on mSATA you may want to look at this repository:
 
 * [pcengines-apu-debian-cd/releases](https://github.com/ssinyagin/pcengines-apu-debian-cd/releases)
 * [pcengines-apu-debian-cd](https://github.com/ssinyagin/pcengines-apu-debian-cd)
+
+## Debian 11 bullseye
+
+_All systems still go :)_
 
 ## Debian 10 buster
 
@@ -54,7 +61,7 @@ echo cpu0 > /sys/class/leds/apu\:3/trigger
 
 You can change them to whatever you like by editing /etc/rc.local 
 
-DKMS will try to recompile the module if the kernel version changes. If you don't know what to download use you probably want this package.
+DKMS will try to recompile the module if the kernel version changes. If you don't know what to download you probably want this package.
 
 **Quick install**:
 
@@ -90,11 +97,11 @@ List all options:
 
 # Voyage Linux
 
-Voyage Linux is/was a Debian derived distribution that is best run on a x86 embedded platforms such as PC Engines ALIX/WRAP, Soekris 45xx/48xx/65xx and Atom-based boards. Link: ~~<http://linux.voyage.hk>~~
+Voyage Linux is/was a Debian derived distribution that is best run on a x86 embedded platforms such as PC Engines ALIX/WRAP, Soekris 45xx/48xx/65xx and Atom-based boards. Link:  <http://linux.voyage.hk>
 
 ## Mirror
 
-It looks like the main website is gone, which is confirmed by <https://wiki.debian.org/Derivatives/Census/VoyageLinux>
+~~It looks like the main website is gone, which is confirmed by <https://wiki.debian.org/Derivatives/Census/VoyageLinux>~~
 
 Webpage snapshots from archive.org:
 
@@ -153,14 +160,14 @@ _(copy/paste as one line)_
 
 # Tiny Core Linux
 
-[TinyCore-9.0-sc.img](TinyCore-9.0-sc.img)
+[TinyCore-9.0-sc.img.gz](TinyCore-9.0-sc.img.gz)
 
 Ready made raw dd image with latest TinyCore version and changes for PCE APU applied (serial console). Write to USB using ``dd if=TinyCore-9.0-sc.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your USB drive, e.g. **/dev/sdd**.
 
 Oneliner to install:
 
 ``` bash
-$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyCore-9.0-sc.img && sha512sum TinyCore-9.0-sc.img | \
+$ wget https://github.com/mkorthof/pc-engines-apu/raw/master/TinyCore-9.0_sc.img.gz && sha512sum TinyCore-9.0-sc.img | \
 grep 0e37edc6d2c5df52db893ce7c787e9fde926769f340472fd7f399f51c311fb530a71ec4f758b03f1112ae561a14eae3a662c9b2076ce34d09acd1afb225e9443 && \
 echo OK, now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
 ``` 
