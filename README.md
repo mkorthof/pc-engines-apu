@@ -160,14 +160,14 @@ _(copy/paste as one line)_
 
 # Tiny Core Linux
 
-[TinyCore-9.0-sc.img](TinyCore-9.0-sc.img)
+[TinyCore-9.0-sc.img.gz](TinyCore-9.0-sc.img.gz)
 
 Ready made raw dd image with latest TinyCore version and changes for PCE APU applied (serial console). Write to USB using ``dd if=TinyCore-9.0-sc.img of=YOUR-USB-DEV`` where ***YOUR-USB-DEV*** is of course the correct device for your USB drive, e.g. **/dev/sdd**.
 
 Oneliner to install:
 
 ``` bash
-$ wget https://github.com/mkorthof/voyage-linux/raw/master/TinyCore-9.0-sc.img && sha512sum TinyCore-9.0-sc.img | \
+$ wget https://github.com/mkorthof/pc-engines-apu/raw/master/TinyCore-9.0_sc.img.gz && sha512sum TinyCore-9.0-sc.img | \
 grep 0e37edc6d2c5df52db893ce7c787e9fde926769f340472fd7f399f51c311fb530a71ec4f758b03f1112ae561a14eae3a662c9b2076ce34d09acd1afb225e9443 && \
 echo OK, now run: sudo dd if=TinyBoot-9.0-sc.img of=YOUR-USB-DEV
 ``` 
