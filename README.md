@@ -52,7 +52,7 @@ Author:       Christian Herzog
 
 ### [leds-apu-dkms_0.1_amd64.deb](leds-apu-dkms_0.1_amd64.deb)
 
-Installs leds-apu module and adds it to /etc/modules so it gets loads at boot time. It also sets these triggers for disk and cpu activity in /etc/rc.local.
+Installs leds-apu module and adds it to /etc/modules so it gets loaded at boot time. It also sets these triggers for disk and cpu activity in /etc/rc.local.
 
 ``` bash
 echo disk-activity > /sys/class/leds/apu\:2/trigger
